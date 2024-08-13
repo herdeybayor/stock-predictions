@@ -15,6 +15,15 @@ export default {
 			});
 		}
 
+		// Handle POST request
+		if (request.method !== 'POST') {
+			return new Response(JSON.stringify({ error: `Method ${request.method} Not Allowed` }), {
+				status: 405,
+				statusText: 'Method Not Allowed',
+				headers: corsHeaders,
+			});
+		}
+
 		const openai = new OpenAI({
 			apiKey: env.OPENAI_API_KEY,
 			baseURL: 'https://gateway.ai.cloudflare.com/v1/75ff1af9893e3ec9034d2b207f160b44/stock-predictions/openai',
