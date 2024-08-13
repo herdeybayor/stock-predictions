@@ -15,7 +15,9 @@ export default {
 				frequency_penalty: 0,
 			});
 			const response = chatCompletion.choices[0].message;
-			return new Response(JSON.stringify(response));
+			return new Response(JSON.stringify(response), {
+				headers: { 'content-type': 'application/json' },
+			});
 		} catch (err) {
 			return new Response(err.message, { status: 500 });
 		}
