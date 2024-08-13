@@ -21,7 +21,7 @@ export default {
 
 		try {
 			const chatCompletion = await openai.chat.completions.create({
-				model: 'gpt-4',
+				model: 'gpt-4o-mini',
 				messages: [{ role: 'user', content: 'Should I trust stock predictions from Dodgy Dave?' }],
 				temperature: 1.1,
 				presence_penalty: 0,
